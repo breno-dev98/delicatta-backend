@@ -35,4 +35,15 @@ export const paymentMethodRepository = {
       where: { id },
     });
   },
+
+  toggleActive: (id: string, active: boolean) => {
+    return prisma.payments_Methods.update({
+      where: { id },
+      data: {
+        active: {
+          set: active,
+        },
+      },
+    });
+  },
 };

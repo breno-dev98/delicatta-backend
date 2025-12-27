@@ -40,11 +40,12 @@ model Product {
 
 model Payments_Methods {
   id        String     @id @default(uuid())
-  method    String    @unique
+  name      String    @unique
   active    Boolean    @default(true)
   fee       Decimal?   @db.Decimal(5, 2)
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
   @@map("payments_methods")
+  
 }

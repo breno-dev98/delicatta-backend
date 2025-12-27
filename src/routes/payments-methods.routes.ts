@@ -18,4 +18,6 @@ paymentsMethodsRoutes.put("/:id", paymentsMethodsController.updatePaymentMethod)
 /* Deletar método de pagamento */
 paymentsMethodsRoutes.delete("/:id", paymentsMethodsController.deletePaymentMethod);
 
+paymentsMethodsRoutes.patch("/:id", paymentsMethodsController.toggleActive)
+
 export { paymentsMethodsRoutes };

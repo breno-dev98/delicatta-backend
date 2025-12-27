@@ -26,4 +26,15 @@ export const paymentMethodsService = {
   deletePaymentMethod: async (id: string) => {
     return await paymentMethodRepository.delete(id);
   },
+
+  // Toggle a active method
+  toggleActive: async (id: string) => {
+    const paymentMethod = await paymentMethodRepository.findById(id);
+
+    if (!paymentMethod) {
+      throw new Error("Método de pagamento não encontrado");
+    }
+
+    return paymentMethodRepository.toggleActive(id, !paymentMethod.active);
+  },
 };

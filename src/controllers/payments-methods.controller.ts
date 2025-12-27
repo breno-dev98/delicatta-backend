@@ -39,5 +39,19 @@ export const paymentsMethodsController = {
     const { id } = req.params;
     await paymentMethodsService.deletePaymentMethod(id);
     res.status(204).send();
-  } ,
+  },
+
+  toggleActive: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const updatedActiveMethod = await paymentMethodsService.toggleActive(id);
+
+      return res.json(updatedActiveMethod);
+    } catch (error: any) {
+      return res.status(400).json({
+        message: error.message,
+      });
+    }
+  },
 };
