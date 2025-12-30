@@ -4,6 +4,7 @@ import { categoryRoutes } from "./routes/category.routes.js";
 import { paymentsMethodsRoutes } from "./routes/payments-methods.routes.js";
 import { packagingRoutes } from "./routes/packaging.routes.js";
 import { productRoutes } from "./routes/product.routes.js";
+import { stockRoutes } from "./routes/stock.routes.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/payment-methods", paymentsMethodsRoutes);
 app.use("/api/packagings", packagingRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/stocks", stockRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   return res.json({ message: "API rodando 🚀" });
